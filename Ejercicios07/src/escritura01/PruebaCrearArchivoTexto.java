@@ -15,9 +15,26 @@ public class PruebaCrearArchivoTexto {
         String apellido = entrada.nextLine();
         System.out.println("Ingrese su edad");
         int edad = entrada.nextInt();
-        
-        cadenaFinal = String.format("%s%s %s %d\n", cadenaFinal, nombre, 
-                apellido, edad);
+                boolean bandera = true;
+        String opcion;
+        while (bandera) {
+            System.out.println("Ingrese su nombre");
+            String nombre = entrada.nextLine();
+            System.out.println("Ingrese su apellido");
+            String apellido = entrada.nextLine();
+            System.out.println("Ingrese su edad");
+            int edad = entrada.nextInt();
+            System.out.println("Para ingresar más registros presione s, para terminar presione n");
+            entrada.nextLine();
+            opcion = entrada.nextLine();
+            opcion = opcion.toLowerCase();
+            if (opcion.equals("n")) {
+                bandera = false;
+            }
+
+            cadenaFinal = String.format("%s%s %s %d\n", cadenaFinal, nombre,
+                    apellido, edad);
+        }
         
         CrearArchivoTexto.agregarRegistros(cadenaFinal);
         
